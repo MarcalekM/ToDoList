@@ -5,16 +5,27 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ToDoList"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="450" Width="800"
+        MinHeight="350"
+        MinWidth="580">
     <Grid>
         <Grid.RowDefinitions>
-            <RowDefinition Height="100"/>
-            <RowDefinition Height="350"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="5*"/>
         </Grid.RowDefinitions>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="250"/>
-            <ColumnDefinition Width="550"/>
+            <ColumnDefinition Width="0.8*"/>
+            <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
+        <TextBox x:Name="Szoveg" Grid.Column="1" TextWrapping="Wrap" Text="" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinHeight="25" MinWidth="120" Margin="50, 12"/>
+        <Button Content="Hozzáadás" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="45" MinWidth="75" Margin="20, 20" Click="Button_Click"/>
+        <Button Content="Törlés" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="45" MinWidth="75" Margin="20, 70" Click="Button_Click_1"/>
+        <Button Content="Törlés Mind" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" Height="45" MinWidth="75" Margin="20,120" Click="TorolMind_Click"/>
+        <ListBox x:Name="ToDoList" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="1" MinWidth="100" Margin="20, 12">
+            <ListBoxItem Content="Test1"/>
+            <ListBoxItem Content="Test2"/>
+            <ListBoxItem Content="Test3"/>
+        </ListBox>
 
     </Grid>
 </Window>
