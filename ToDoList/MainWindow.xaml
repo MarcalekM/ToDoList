@@ -5,9 +5,10 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ToDoList"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800"
-        MinHeight="350"
-        MinWidth="580">
+        Title="MainWindow" Height="470" Width="800"
+        MinHeight="470"
+        MinWidth="800"
+        WindowStyle="None">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -17,15 +18,22 @@
             <ColumnDefinition Width="0.8*"/>
             <ColumnDefinition Width="3*"/>
         </Grid.ColumnDefinitions>
-        <TextBox x:Name="Szoveg" Grid.Column="1" TextWrapping="Wrap" Text="" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinHeight="25" MinWidth="120" Margin="50, 12"/>
-        <Button Content="Hozzáadás" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="45" MinWidth="75" Margin="20, 20" Click="Button_Click"/>
-        <Button Content="Törlés" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="45" MinWidth="75" Margin="20, 70" Click="Button_Click_1"/>
+        <TextBox x:Name="Szoveg" Grid.Column="1" TextWrapping="Wrap" Text="" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" MinHeight="25" MinWidth="120" Margin="50, 12" FontFamily="Times New Roman" FontSize="20"/>
+        <Button Content="Hozzáadás" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="45" MinWidth="75" Margin="20, 20" Click="Hozzaad"/>
+        <Button Content="Törlés" Grid.Column="0" Grid.Row="1" HorizontalAlignment="Stretch" VerticalAlignment="Top" Height="45" MinWidth="75" Margin="20, 70" Click="Torol"/>
         <Button Content="Törlés Mind" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" Height="45" MinWidth="75" Margin="20,120" Click="TorolMind_Click"/>
+        <Button Content="Módosít" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" Height="45" MinWidth="75" Margin="20,170,20,0" Click="Modosit"/>
+        <Button Content="Rendezés növekvő" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" Height="45" MinWidth="75" Margin="20,220,20,0" Click="RendezesN"/>
+        <Button Content="Rendezés csökkenő" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" Height="45" MinWidth="75" Margin="20,270,20,0" Click="RendezesCS"/>
+        <Button Content="Kilépés" Grid.Column="0" Grid.Row="1" VerticalAlignment="Top" HorizontalAlignment="Left" Height="36" Width="50" Margin="20,320,20,0" Click="Kilepes"/>
+        <Button Content="^" HorizontalAlignment="Left" Margin="75,323,0,0" Grid.Row="1" VerticalAlignment="Top" Height="30" Width="30" Click="Up"/>
+        <Button Content="V" HorizontalAlignment="Left" Margin="118,323,0,0" Grid.Row="1" VerticalAlignment="Top" Height="30" Width="30" Click="Down"/>
         <ListBox x:Name="ToDoList" Grid.Column="1" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Grid.Row="1" MinWidth="100" Margin="20, 12">
             <ListBoxItem Content="Test1"/>
             <ListBoxItem Content="Test2"/>
             <ListBoxItem Content="Test3"/>
         </ListBox>
+
 
     </Grid>
 </Window>
