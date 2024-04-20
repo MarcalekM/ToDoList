@@ -1,4 +1,6 @@
 ﻿using System.Text;
+using System.Linq;
+using System.Collections.Generic;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -70,19 +72,23 @@ namespace ToDoList
 
         private void RendezesN(object sender, RoutedEventArgs e)
         {
-            ToDoList.Items.SortDescriptions.Add(
-                new System.ComponentModel.SortDescription("Content",
-                System.ComponentModel.ListSortDirection.Ascending));
+            List<string> items = new();
+            foreach (ListBoxItem item in ToDoList.Items) items.Add(item.Content.ToString());
+            var sortedItems = items.OrderBy(i => i).ToList();
+            ToDoList.Items.Clear();
+            for (int i = 0; i < sortedItems.Count; i++) ToDoList.Items.Add(sortedItems[i]);
         }
 
         private void RendezesCS(object sender, RoutedEventArgs e)
         {
-            ToDoList.Items.SortDescriptions.Add(
-                new System.ComponentModel.SortDescription("Content",
-                System.ComponentModel.ListSortDirection.Descending));
+            List<string> items = new();
+            foreach (ListBoxItem item in ToDoList.Items) items.Add(item.Content.ToString());
+            var sortedItems = items.OrderByDescending(i => i).ToList();
+            ToDoList.Items.Clear();
+            for (int i = 0; i < sortedItems.Count; i++) ToDoList.Items.Add(sortedItems[i]);
         }
 
-        private void Kilepes(object sender, RoutedEventArgs e)
+        private void Kilepes(object sender, RoutedEventArgs e, int ad, int torol, int mozgat, int modosit)
         {
             this.Close();
         }
@@ -115,6 +121,13 @@ namespace ToDoList
                 item.Content = item2.Content;
                 item2.Content = content;
             }
+        }
+
+        private void Copy(object sender, RoutedEventArgs e)
+        {
+            ListBoxItem copiedItem = (ListBoxItem)ToDoList.SelectedItem;
+            string x = copiedItem.Content.ToString();
+            SecondList.Items.Add(x);
         }
     }
 }
