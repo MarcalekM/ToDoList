@@ -36,17 +36,17 @@ namespace ToDoList
                 ToDoList.Items.Add(item);
             }
             if (ToDoList.Items.Count == 0) {
-                btnClear.Visibility = Visibility.Hidden;
-                btnClearAll.Visibility = Visibility.Hidden;
-                btnCopy.Visibility = Visibility.Hidden;
+                btnClear.Background = new SolidColorBrush(Colors.Gray);
+                btnClearAll.Background = new SolidColorBrush(Colors.Gray);
+                btnCopy.Background = new SolidColorBrush(Colors.Gray);
             }
             if (ToDoList.Items.Count < 2)
             {
 
-                btnRendezCS.Visibility = Visibility.Hidden;
-                btnRendezN.Visibility = Visibility.Hidden;
-                btnUp.Visibility = Visibility.Hidden;
-                btnDown.Visibility = Visibility.Hidden;
+                btnRendezCS.Background = new SolidColorBrush(Colors.Gray);
+                btnRendezN.Background = new SolidColorBrush(Colors.Gray);
+                btnUp.Background = new SolidColorBrush(Colors.Gray);
+                btnDown.Background = new SolidColorBrush(Colors.Gray);
             }
         }
 
@@ -68,17 +68,16 @@ namespace ToDoList
                 Szoveg.Text = String.Empty;
                 if (ToDoList.Items.Count != 0)
                 {
-                    btnClear.Visibility = Visibility.Visible;
-                    btnClearAll.Visibility = Visibility.Visible;
-                    btnCopy.Visibility = Visibility.Visible;
+                    btnClear.Background.Opacity = 0;
+                    btnClearAll.Background.Opacity = 0;
+                    btnCopy.Background.Opacity = 0;
                 }
                 if (ToDoList.Items.Count > 1)
                 {
-
-                    btnRendezCS.Visibility = Visibility.Visible;
-                    btnRendezN.Visibility = Visibility.Visible;
-                    btnUp.Visibility= Visibility.Visible;
-                    btnDown.Visibility= Visibility.Visible;
+                    btnRendezCS.Background.Opacity = 0;
+                    btnRendezN.Background.Opacity = 0;
+                    btnUp.Background.Opacity = 0;
+                    btnDown.Background.Opacity = 0;
                 }
             }
         }
@@ -210,12 +209,6 @@ namespace ToDoList
                 string x = copiedItem.Content.ToString();
                 SecondList.Items.Add(x);
             }
-        }
-        
-        private void Window_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            if (e.ChangedButton == MouseButton.Left)
-                this.DragMove();
         }
     }
 }
